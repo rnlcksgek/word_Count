@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang = "en"> 
+    <head>
+        <meta charset = "UTF-8">
+        <title>word counter</title>
+        <!--<link rel = "stylesheet" type ="text/css" href= "wordcount.css"/>-->
+        <style>
+            body{
+                margin : auto;
+                width : 90%;
+                height : 100vh;
+                background : linear-gradient(to right, #232526, #414345);
+            }
+            #logo{
+                color : whitesmoke;
+                font-size : 4vw;
+                margin : 0px;
+            
+            }
+            #logo h1{
+                margin : 10px;
+            }
+
+            #align {
+                width : 100%;
+                height : 80vmin;
+                display : flex;
+            }
+            #align div{
+                display: inline-block;
+                vertical-align : top;
+            }
+            #align #search{
+                width : 75%;
+                height : 100%;
+                overflow : hidden;
+            }
+            #align #search form textarea{
+                width : 65vw;
+                height : 70vh;
+                margin : 0 1.25vw;
+                font-size : 1.5vw;
+                resize : none;
+                outline-style : none;
+            }
+            
+            #align #search form button{
+                text-align : center;
+                border : none;
+                background-color : white;
+                width : 10vw;
+                height : 5vh;
+                float : right;
+                margin : 0.8vw 1.7vw;
+
+            }
+
+            #align #image{
+                width : 23%;
+                height : 100%;
+                margin : 0;
+           
+         
+            }
+            #align #image img{
+                margin : 350px 0 0 10vw;
+                width : 150px;
+                height : 200px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div id = "logo">
+            <h1>Word Count!</h1>
+        </div>
+        <div id = "align">
+            <div id = "search">
+                <form action="{% url 'count'%}">
+                    <textarea name='textarea' placeholder="write things down!"></textarea> 
+                    <br>
+                    <button type="submit">Count!</button>
+                </form>
+            </div>
+            <div id = "image">
+                <img src = "https://image.flaticon.com/icons/svg/2921/2921394.svg">
+
+            </div>
+        </div>
+    </body>
+</html>

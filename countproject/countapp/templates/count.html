@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>word counter</title>
+        <style>
+            body{
+                margin : auto;
+                width : 90%;
+                height : 100vh;
+                background : linear-gradient(to right, #232526, #414345);
+            }
+            #count_num{
+                color : whitesmoke;
+                font-size : 1.5vw;
+                margin : 0px;
+            }
+            #count_num h1{
+                margin : 10px;
+            }
+
+            #context {
+                width : 100%;
+                height : 90vmin;
+                display : flex;
+            }
+            #context #written{
+                display: inline-block;
+                width : 75%;
+                height : 100%;
+                overflow : hidden;
+            }
+            #context #written h1{
+                margin : 1vw 1.25vw;
+                color : whitesmoke;
+                font-size : 2vw;
+            }
+            #context #written textarea{
+                width : 65vw;
+                height : 70vh;
+                margin : 0.5vw 1.25vw;
+                font-size : 1.5vw;
+                resize : none;
+                outline-style : none;
+            }
+            
+            #context #written form button{
+                text-align : center;
+                border : none;
+                background-color : white;
+                width : 10vw;
+                height : 5vh;
+                float : right;
+                margin : 0.5vw 1.7vw;
+            }
+        
+            #context #commonword{
+                display : inline-block;
+                width : 23%;
+                height : 100%;
+                margin : 0;
+            }
+            #context #commonword h1{
+                font-size : 2vw;
+                color : whitesmoke;
+            }
+            #context #commonword ul{
+                margin : 0.7vw 0;
+            }
+            #context #commonword ul #list{
+                display : flex;
+                width : 17vw;
+                margin : auto;
+            }
+            #context #commonword ul li{
+                text-align : center;
+                color : whitesmoke;
+                font-size : 1.5vw;
+                display : inline-block;
+                width : 8vw;
+                margin : 0 0.5vw;
+            }
+
+        </style>
+    </head>
+
+
+    <body>
+        <div id = "count_num">
+            <h1>당신이 입력한 텍스트는 {{total}} 단어로 구성되어 있습니다.</h1>
+        </div>
+        <div id = "context">
+            <div id = "written">
+                <h1>입력한 텍스트 : </h1> <!-- 입력받은 전체 텍스트 -->
+                <textarea name="writtentext">{{alltext}}</textarea>
+                <form action = "{% url 'home' %}">
+                    <button type="submit">다시하기</button>
+                </form>
+            </div>
+            <div id = "commonword">
+                <h1>TOP 15</h1>
+                {% for word,frequency in dictionary%}
+                <ul>
+                    <div id ="list">
+                        <li>{{word}}</li> 
+                        <li>{{frequency}}</li>
+                    </div>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+
+</html>
+
+
+
+</body>
